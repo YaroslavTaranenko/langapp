@@ -26,8 +26,10 @@ export class LangService {
     // return of(this.dictionary);
     return this.http.get<Dictionary[]>('/api/dictionaries');
   }
-  addEntry(word: string, translation: string, lang: string): void {
-    this.dictionary.push(new Dictionary(word, [translation], lang));
+  addEntry(word: string, translation: string, lang: string): Observable<any> {
+    // this.dictionary.push(new Dictionary(word, [translation], lang));
+    const ent = { word: word, translation: translation, lang: lang };
+    return this.http.post('/api/dictionaries', ent);
   }
 
 }

@@ -14,7 +14,15 @@ export class DictionaryComponent implements OnInit {
   constructor(private langSrv: LangService) { }
 
   addEntry(word: string, trans: string, lang: string) {
-    this.langSrv.addEntry(word, trans, lang);
+    this.langSrv.addEntry(word, trans, lang).subscribe(
+      (data) => { this.getDictionary(); },
+      (error) => { alert(error.message); }
+    );
+  }
+  clear() {
+    word = '';
+    translation = '';
+    lang = '';
   }
   // check(word: string, trans: string, lang: string) {
   //   alert('ok');

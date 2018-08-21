@@ -4,7 +4,7 @@
       <input type="text" class="form-control" [(ngModel)]="word" placeholder="Enter foreign word" />
       <input type="text" class="form-control" [(ngModel)]="translation" placeholder="Enter translation" />
       <input type="text" class="form-control" [(ngModel)]="lang" placeholder="Enter lang" />
-      <button class="btn btn-default" (click)="addEntry(word, translation, lang)">Add Entry</button>
+      <button class="btn btn-default" (click)="clear(); addEntry(word, translation, lang);">Add Entry</button>
     </div>
   </div>
 </div>
