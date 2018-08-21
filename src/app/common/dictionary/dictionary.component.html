@@ -1,0 +1,17 @@
+<div class="panel">
+  <div class="form-inline">
+    <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="word" placeholder="Enter foreign word" />
+      <input type="text" class="form-control" [(ngModel)]="translation" placeholder="Enter translation" />
+      <input type="text" class="form-control" [(ngModel)]="lang" placeholder="Enter lang" />
+      <button class="btn btn-default" (click)="addEntry(word, translation, lang)">Add Entry</button>
+    </div>
+  </div>
+</div>
+<ul>
+  <li *ngFor="let entry of data">
+    <span>{{entry.word}}: </span>
+    <span *ngFor="let trans of entry.translation">{{trans}}; </span>
+    <small>({{entry.lang}})</small>
+  </li>
+</ul>
